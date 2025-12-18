@@ -10,7 +10,7 @@
  */
 
 import { browser, $, expect } from '@wdio/globals';
-import { clickMenuItem } from './helpers/menuActions';
+import { clickMenuItemById } from './helpers/menuActions';
 import { waitForWindowCount, closeCurrentWindow } from './helpers/windowActions';
 import { E2ELogger } from './helpers/logger';
 
@@ -29,7 +29,7 @@ describe.skip('Application Lifecycle', () => {
         this.timeout(30000);
 
         // 1. Open the Options window
-        await clickMenuItem({ menuLabel: 'File', itemLabel: 'Options' });
+        await clickMenuItemById('menu-file-options');
 
         // Wait for Options window to appear (2 windows total)
         await waitForWindowCount(2, 5000);

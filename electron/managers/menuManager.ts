@@ -34,11 +34,13 @@ export default class MenuManager {
             submenu: [
                 {
                     label: 'About Gemini Desktop',
+                    id: 'menu-app-about',
                     click: () => this.windowManager.createOptionsWindow('about'),
                 },
                 { type: 'separator' },
                 {
                     label: 'Settings...',
+                    id: 'menu-app-settings',
                     accelerator: 'CmdOrCtrl+,',
                     click: () => this.windowManager.createOptionsWindow(),
                 },
@@ -66,6 +68,7 @@ export default class MenuManager {
                 { type: 'separator' },
                 {
                     label: 'Sign in to Google',
+                    id: 'menu-file-signin',
                     click: async () => {
                         await this.windowManager.createAuthWindow('https://accounts.google.com/signin');
                         // Reload main window to capture new auth state
@@ -74,6 +77,7 @@ export default class MenuManager {
                 },
                 {
                     label: process.platform === 'darwin' ? 'Settings...' : 'Options',
+                    id: 'menu-file-options',
                     accelerator: 'CmdOrCtrl+,',
                     click: () => this.windowManager.createOptionsWindow()
                 },
@@ -89,11 +93,11 @@ export default class MenuManager {
         return {
             label: 'View',
             submenu: [
-                { role: 'reload' },
-                { role: 'forceReload' },
-                { role: 'toggleDevTools' },
+                { role: 'reload', id: 'menu-view-reload' },
+                { role: 'forceReload', id: 'menu-view-forcereload' },
+                { role: 'toggleDevTools', id: 'menu-view-devtools' },
                 { type: 'separator' },
-                { role: 'togglefullscreen' }
+                { role: 'togglefullscreen', id: 'menu-view-fullscreen' }
             ]
         };
     }
@@ -104,6 +108,7 @@ export default class MenuManager {
             submenu: [
                 {
                     label: 'About Gemini Desktop',
+                    id: 'menu-help-about',
                     click: () => this.windowManager.createOptionsWindow('about')
                 },
                 {

@@ -9,14 +9,14 @@
 import { browser, $, expect } from '@wdio/globals';
 import { usesCustomControls } from './helpers/platform';
 import { Selectors } from './helpers/selectors';
-import { clickMenuItem } from './helpers/menuActions';
+import { clickMenuItemById } from './helpers/menuActions';
 import { waitForWindowCount, closeCurrentWindow } from './helpers/windowActions';
 
 /**
  * Helper function to open the Options window and switch to it.
  */
 async function openOptionsWindow(): Promise<{ mainHandle: string; optionsHandle: string }> {
-    await clickMenuItem({ menuLabel: 'File', itemLabel: 'Options' });
+    await clickMenuItemById('menu-file-options');
 
     await waitForWindowCount(2, 5000);
 

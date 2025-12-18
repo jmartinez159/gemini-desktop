@@ -146,6 +146,7 @@ export function TitlebarMenu({ menus }: TitlebarMenuProps) {
                                 disabled={item.disabled}
                                 onClick={() => handleItemClick(item.action)}
                                 data-testid={`menu-item-${item.label}`}
+                                data-menu-id={item.id}
                             >
                                 <span className="menu-item-label">{item.label}</span>
                                 {item.shortcut && (
